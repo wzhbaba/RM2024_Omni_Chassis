@@ -110,7 +110,7 @@ static void RBMotorCallback()
 
 void Chassis::PowerCalc()
 {
-    static float limit = 20000.0f;
+    static float limit = 22000.0f;
     static float power_ctrl;
     float all_output;
     all_output = fabs(wheel_spd_[0]) + fabs(wheel_spd_[1]) + fabs(wheel_spd_[2]) + fabs(wheel_spd_[3]);
@@ -155,7 +155,7 @@ void Chassis::ScaleSet(uint16_t referee_power_limit)
     } else {
         power_scale_ = 158;
     }
-    if (board_comm.GetCapFlag() && cap.GetVolt() > 16.0f) {
+    if (board_comm.GetCapFlag() && cap.GetCapState()) {
         if (referee_power_limit == 45) {
             power_scale_ = 300;
         } else if (referee_power_limit == 50) {
