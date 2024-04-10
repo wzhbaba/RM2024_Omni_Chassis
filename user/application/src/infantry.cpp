@@ -61,6 +61,7 @@ void CapTask()
 {
     cap.SetPower(referee.game_robot_state_.chassis_power_limit);
     cap.AccessPoll();
+    cap.SetCapState();
 }
 
 void UITask()
@@ -69,13 +70,13 @@ void UITask()
     static float UI_CapVoltage = 0.0f;
     counter++;
     if (counter % 301 == 0) {
-        UI.Draw_Line(&UI.UI_Graph7.Graphic[0], (char*)"001", UI_Graph_ADD, 0, UI_Color_Green, 1, 840, 455, 920, 455);
-        UI.Draw_Line(&UI.UI_Graph7.Graphic[1], (char*)"002", UI_Graph_ADD, 0, UI_Color_Green, 1, 950, 455, 970, 455);
-        UI.Draw_Line(&UI.UI_Graph7.Graphic[2], (char*)"003", UI_Graph_ADD, 0, UI_Color_Green, 1, 1000, 455, 1080, 455);
-        UI.Draw_Line(&UI.UI_Graph7.Graphic[3], (char*)"004", UI_Graph_ADD, 0, UI_Color_Green, 1, 960, 445, 960, 465);
-        UI.Draw_Line(&UI.UI_Graph7.Graphic[4], (char*)"005", UI_Graph_ADD, 0, UI_Color_Green, 1, 870, 420, 930, 420);
-        UI.Draw_Line(&UI.UI_Graph7.Graphic[5], (char*)"006", UI_Graph_ADD, 0, UI_Color_Green, 1, 959, 420, 960, 420);
-        UI.Draw_Line(&UI.UI_Graph7.Graphic[6], (char*)"007", UI_Graph_ADD, 0, UI_Color_Green, 1, 990, 420, 1050, 420);
+        UI.Draw_Line(&UI.UI_Graph7.Graphic[0], (char*)"001", UI_Graph_ADD, 0, UI_Color_Green, 1, 840, 505, 920, 505);
+        UI.Draw_Line(&UI.UI_Graph7.Graphic[1], (char*)"002", UI_Graph_ADD, 0, UI_Color_Green, 1, 950, 505, 970, 505);
+        UI.Draw_Line(&UI.UI_Graph7.Graphic[2], (char*)"003", UI_Graph_ADD, 0, UI_Color_Green, 1, 1000, 505, 1080, 505);
+        UI.Draw_Line(&UI.UI_Graph7.Graphic[3], (char*)"004", UI_Graph_ADD, 0, UI_Color_Green, 1, 960, 495, 960, 515);
+        UI.Draw_Line(&UI.UI_Graph7.Graphic[4], (char*)"005", UI_Graph_ADD, 0, UI_Color_Green, 1, 870, 470, 930, 470);
+        UI.Draw_Line(&UI.UI_Graph7.Graphic[5], (char*)"006", UI_Graph_ADD, 0, UI_Color_Green, 1, 959, 470, 960, 470);
+        UI.Draw_Line(&UI.UI_Graph7.Graphic[6], (char*)"007", UI_Graph_ADD, 0, UI_Color_Green, 1, 990, 470, 1050, 470);
         UI.PushUp_Graphs(7, &UI.UI_Graph7, referee.game_robot_state_.robot_id);
     }
 
