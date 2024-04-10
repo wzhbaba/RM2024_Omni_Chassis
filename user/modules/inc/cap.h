@@ -72,6 +72,7 @@ class PM01_t
     void Init(CAN_HandleTypeDef* _p_hcan, uint16_t _id);
     void Update();
     void AccessPoll();
+    void SetCapState();
     void SetPower(uint16_t _p_in)
     {
         power_set_ = _p_in * 100;
@@ -79,10 +80,14 @@ class PM01_t
     void SetIOut(uint16_t _iout)
     {
         iout_set_ = _iout * 100;
-    };
+    }
     float GetVolt()
     {
         return data.v_out / 100.0f;
+    }
+    uint8_t GetCapState()
+    {
+        return cap_state_;
     }
 
    private:
@@ -91,6 +96,7 @@ class PM01_t
     void SendData(uint16_t _cmd);
     uint16_t SetRxID();
     uint16_t SetTxID(uint16_t _id);
+    uint8_t cap_state_;
 };
 /* Exported variables --------------------------------------------------------*/
 extern PM01_t cap;

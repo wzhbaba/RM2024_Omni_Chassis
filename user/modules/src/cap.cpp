@@ -217,3 +217,12 @@ uint16_t PM01_t::SetTxID(uint16_t _id)
     p_instance_->tx_conf.StdId = _id;
     return p_instance_->tx_conf.StdId;
 }
+
+void PM01_t::SetCapState()
+{
+    if (data.v_out < 1500) {
+        cap_state_ = 0;
+    } else if (data.v_out > 1800) {
+        cap_state_ = 1;
+    }
+}
